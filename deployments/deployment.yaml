@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    tier: frontend
+    app: nginx
+spec:
+  template:
+    metadata:
+      name: app-pod
+      labels:
+        app: app-pod
+        type: front-end-pod
+    spec:
+      containers:
+      - name: wordpress
+        image: wordpress
+  replicas: 1
+  selector:
+    matchLabels:
+      type: front-end-pod
+
