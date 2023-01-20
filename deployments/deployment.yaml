@@ -4,7 +4,7 @@ metadata:
   name: app-deployment
   labels:
     tier: frontend
-    app: nginx
+    app: wordpress
 spec:
   template:
     metadata:
