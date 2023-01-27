@@ -15,7 +15,7 @@ spec:
     spec: 
       containers: # list of all containers to be deployed under one pod
       - name: test-app # name of the container
-        image: roshsathya/test-images:1.0 # docker image of the container
+        image: roshsathya/test-images:2.0 # docker image of the container
   replicas: 1 # total number of replicas needed
   selector: # selector to find the pod to apply the deployment changes to
     matchLabels:
