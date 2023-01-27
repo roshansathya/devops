@@ -1,0 +1,23 @@
+apiVersion: apps/v1 # version of the kubernetes API
+kind: Deployment # the kind of object
+metadata: # meta data related to the object. We can added labels here which can be used as selectors
+  name: app-deployment
+  labels:
+    tier: frontend
+    app: wordpress
+spec:
+  template: # specs of the pod to be created
+    metadata: # meta data of the pod
+      name: app-pod
+      labels:
+        app: app-pod
+        type: front-end-pod
+    spec: 
+      containers: # list of all containers to be deployed under one pod
+      - name: test-app # name of the container
+        image: roshsathya/test-images:1.0 # docker image of the container
+  replicas: 1 # total number of replicas needed
+  selector: # selector to find the pod to apply the deployment changes to
+    matchLabels:
+      type: front-end-pod
+

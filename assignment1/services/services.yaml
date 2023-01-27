@@ -1,0 +1,12 @@
+apiVersion: v1 # version of the kubernetes API
+kind: Service # the kind of object
+metadata: # meta data related to the object. We can added labels here which can be used as selectors
+  name: app-service
+spec:
+  type: NodePort # the type of port
+  ports:
+  - targetPort: 80 # port to the container
+    nodePort: 30008 # port to connect to the pod
+    port: 80 # port used by service object to connect to container
+  selector: # selector used to select the pod
+    type: front-end-pod
